@@ -31,6 +31,11 @@
       plenary-nvim
       nvim-web-devicons
       nvim-cmp
+      cmp-buffer
+      cmp-path
+      cmp-nvim-lua
+      luasnip
+      friendly-snippets
       cord-nvim
       nvim-lspconfig
       cmp-nvim-lsp
@@ -38,6 +43,16 @@
       telescope-nvim
       nvim-treesitter.withAllGrammars
       vimtex
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "vim-table-mode";
+        version = "bb025308";
+        src = pkgs.fetchFromGitHub {
+          owner = "dhruvasagar";
+          repo = "vim-table-mode";
+          rev = "bb025308a45c67c7c8f0763ba37bc2ee3f534df0";
+          sha256 = "0mkq8v8l9zbl2l12whzsnbz3fmg7ssqk4qb2syw8hxw1j9sb8wm0";
+        };
+      })
       snacks-nvim
     ]
     ++ extraPlugins;

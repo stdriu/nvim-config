@@ -7,7 +7,15 @@ return {
     local capabilities = cmp_lsp.default_capabilities()
 
     -- 1. Configure standard language servers
-    local standard_servers = { "lua_ls", "clangd" }
+    local standard_servers = {
+      "lua_ls",       -- Lua
+      "clangd",       -- C, C++
+      "pyright",      -- Python
+      "texlab",       -- LaTeX
+      "ts_ls",        -- JavaScript, TypeScript, JSX, TSX
+      "html",         -- HTML
+      "cssls",        -- CSS
+    }
     for _, server in ipairs(standard_servers) do
       vim.lsp.config(server, { capabilities = capabilities })
       vim.lsp.enable(server)
