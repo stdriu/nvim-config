@@ -6,12 +6,8 @@ else
   require("riu.lazy")
 end
 
-require("direnv").setup({
-  autoload_direnv = false,  
-})
-
 local function source_matugen()
-  local matugen_path = os.getenv("HOME") .. "/.config/nvim/colors/matugen.lua"~
+  local matugen_path = os.getenv("HOME") .. "/.config/nvim/colors/matugen.lua"
 
   local file, err = io.open(matugen_path, "r")
   if err ~= nil then
@@ -37,7 +33,7 @@ local function auxiliary_function()
       pcall(require, 'lualine')
     end
   else
-    dofile(os.getenv("HOME") .. '/.config/nvim/lua/riu/plugins/lualine-nvim.lua') 
+    dofile(os.getenv("HOME") .. '/.config/nvim/lua/riu/plugins/lualine-nvim.lua')
   end
   vim.api.nvim_set_hl(0, "Comment", { italic = true })
 end
