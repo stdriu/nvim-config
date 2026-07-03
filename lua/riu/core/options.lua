@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 opt.guicursor = ""
-opt.relativenumber = true
+opt.relativenumber = false
 opt.number = true
 
 opt.mouse = "a"
