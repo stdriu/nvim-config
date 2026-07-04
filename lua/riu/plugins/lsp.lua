@@ -15,6 +15,7 @@ return {
       "ts_ls",        -- JavaScript, TypeScript, JSX, TSX
       "html",         -- HTML
       "cssls",        -- CSS
+      "qmlls",        -- QML
     }
     for _, server in ipairs(standard_servers) do
       vim.lsp.config(server, { capabilities = capabilities })

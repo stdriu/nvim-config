@@ -34,4 +34,6 @@ with pkgs; [
 
   tree-sitter
   nodejs
+
+  qt6.qtdeclarative
 ]
