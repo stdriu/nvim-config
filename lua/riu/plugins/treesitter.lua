@@ -14,7 +14,7 @@ local function setup_treesitter()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "tex", "bib" },
     callback = function()
-      vim.opt.conceallevel = 2
+      vim.opt.conceallevel = 1
       vim.opt.concealcursor = "nc"
     end,
   })

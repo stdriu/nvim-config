@@ -6,7 +6,7 @@ opt.number = true
 
 opt.mouse = "a"
 opt.cursorline = true
-opt.cursorcolumn = true
+opt.cursorcolumn = false
 
 opt.tabstop = 2
 opt.softtabstop = 2

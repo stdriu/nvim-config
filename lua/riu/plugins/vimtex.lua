@@ -8,6 +8,6 @@ end
 
 return {
   "lervag/vimtex",
-  lazy = false,
+  ft = "tex",
   config = setup_vimtex,
 }
