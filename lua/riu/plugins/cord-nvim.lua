@@ -1,5 +1,10 @@
 local function setup_cord()
-  require("cord").setup({})
+  require("cord").setup({
+    display = {
+      theme = 'catppuccin',
+      flavor = 'accent',
+    },
+  })
 end
 
 return {
