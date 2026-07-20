@@ -1,4 +1,3 @@
--- lua/riu/plugins/lsp.lua
 return {
   "neovim/nvim-lspconfig",
   dependencies = { "hrsh7th/cmp-nvim-lsp" },
@@ -6,36 +5,38 @@ return {
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_lsp.default_capabilities()
 
-    -- 1. Configure standard language servers
     local standard_servers = {
-      "lua_ls",       -- Lua
-      "clangd",       -- C, C++
-      "pyright",      -- Python
-      "texlab",       -- LaTeX
-      "ts_ls",        -- JavaScript, TypeScript, JSX, TSX
-      "html",         -- HTML
-      "cssls",        -- CSS
-      "qmlls",        -- QML
+      "lua_ls",
+      "pyright",
+      "texlab",
+      "ts_ls",
+      "html",
+      "cssls",
+      "qmlls",
     }
     for _, server in ipairs(standard_servers) do
       vim.lsp.config(server, { capabilities = capabilities })
       vim.lsp.enable(server)
     end
 
-    -- 2. Configure nil_ls specifically to use Alejandra
+    vim.lsp.config("clangd", {
+      capabilities = capabilities,
+    })
+    vim.lsp.enable("clangd")
+
     vim.lsp.config("nil_ls", {
       capabilities = capabilities,
       settings = {
         ["nil"] = {
           formatting = {
-            command = { "alejandra" }, -- 👈 Instructs nil to format using the binary
+            command = { "alejandra" },
           },
+          autoArchive = true,
         },
       },
     })
     vim.lsp.enable("nil_ls")
 
-    -- LSP Keybindings & Auto-format on save
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -47,7 +48,6 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
           vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
-        -- Your existing format-on-save autocmd will now run alejandra automatically!
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = ev.buf,
           callback = function()
