@@ -1,5 +1,4 @@
 require("riu.core")
-
 if vim.g.nix_managed then
   require("riu.nix")
 else
@@ -7,18 +6,7 @@ else
 end
 
 local function source_matugen()
-  local matugen_path = os.getenv("HOME") .. "/.config/nvim/colors/matugen.lua"
-
-  local file, err = io.open(matugen_path, "r")
-  if err ~= nil then
-    vim.cmd('colorscheme base16-catppuccin-mocha')
-
-    vim.print(
-      "A matugen style file was not found, but that's okay! The colorscheme will dynamically change if matugen runs!")
-  else
-    dofile(matugen_path)
-    io.close(file)
-  end
+  vim.cmd("colorscheme matugen")
 end
 
 local function auxiliary_function()
