@@ -43,6 +43,7 @@
       telescope-nvim
       nvim-treesitter.withAllGrammars
       vimtex
+      bufferline-nvim
       (pkgs.vimUtils.buildVimPlugin {
         pname = "vim-table-mode";
         version = "bb025308";
@@ -54,6 +55,7 @@
         };
       })
       snacks-nvim
+      direnv-vim
     ]
     ++ extraPlugins;
 
