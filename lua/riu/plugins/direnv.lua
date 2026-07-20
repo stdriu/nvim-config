@@ -1,8 +1,6 @@
-return {
-  "NotAShelf/direnv.nvim",
-  event = "VeryLazy",
+vim.g.direnv_auto = 0
 
-  opts = {
-    autoload_direnv = false,
-  },
+return {
+  "direnv/direnv.vim",
+  event = "VeryLazy",
 }
