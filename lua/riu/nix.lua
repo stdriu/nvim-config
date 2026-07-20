@@ -66,6 +66,8 @@ M.load_config = function()
     "riu.plugins.indent-blankline",
     "riu.plugins.which-key",
     "riu.plugins.lualine-nvim",
+    "riu.plugins.bufferline",
+    "riu.plugins.direnv",
   }
   for _, module_name in ipairs(plugins_modules) do
     local plugin_spec = safe_require(module_name)
