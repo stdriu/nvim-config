@@ -154,6 +154,7 @@ local function setup_snacks()
   keymap("n", "<Leader>gbr", function() snacks.picker.git_branches({ layout = "select" }) end, { desc = "Git branches" })
   keymap("n", "<leader>th", function() snacks.picker.colorschemes({ layout = "ivy" }) end, { desc = "Colorschemes" })
   keymap("n", "<leader>vh", function() snacks.picker.help() end, { desc = "Help page" })
+  keymap("n", "<leader>t", function() snacks.terminal(nil, { cwd = vim.fn.getcwd() }) end, { desc = "Toggle Terminal" })
 end
 
 return {
