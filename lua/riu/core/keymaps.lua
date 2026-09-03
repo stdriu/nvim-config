@@ -26,4 +26,4 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>") -- open current buffer in
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=") -- make splits equal size
-vim.keymap.set("n", "<leader>sx", "<cmd>clsoe<CR>") -- close current split
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>") -- close current split

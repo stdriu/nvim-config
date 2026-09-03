@@ -5,7 +5,6 @@ opt.relativenumber = false
 opt.number = true
 
 opt.mouse = "a"
-opt.cursorline = true
 opt.cursorcolumn = false
 
 opt.tabstop = 2

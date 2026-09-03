@@ -11,26 +11,7 @@ local function setup_lualine()
       },
       ignore_focus = {},
       always_divide_middle = true,
-      always_show_tabline = true,
       globalstatus = false,
-      refresh = {
-        statusline = 1000,
-        tabline = 1000,
-        winbar = 1000,
-        refresh_time = 16, -- ~60fps
-        events = {
-          'WinEnter',
-          'BufEnter',
-          'BufWritePost',
-          'SessionLoadPost',
-          'FileChangedShellPost',
-          'VimResized',
-          'Filetype',
-          'CursorMoved',
-          'CursorMovedI',
-          'ModeChanged',
-        },
-      }
     },
     sections = {
       lualine_a = { 'mode' },
@@ -58,5 +39,6 @@ end
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  event = 'VeryLazy',
   config = setup_lualine,
 }

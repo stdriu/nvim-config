@@ -13,5 +13,6 @@ end
 
 return {
   "rmagatti/auto-session",
+  event = "VeryLazy",
   config = setup_auto_session,
 }

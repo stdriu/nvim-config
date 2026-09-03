@@ -1,10 +1,3 @@
-vim.keymap.set("n", "<S-h>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Buffer anterior" })
-vim.keymap.set("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Buffer próximo" })
-vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Fixar buffer" })
-vim.keymap.set("n", "<leader>br", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Fechar outros buffers" })
-vim.keymap.set("n", "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Fechar outros buffers" })
-vim.keymap.set("n", "<leader>bc", "<Cmd>bdelete!<CR>", { desc = "Fechar buffer" })
-
 local function setup_bufferline()
   require("bufferline").setup({
     options = {
@@ -36,7 +29,7 @@ local function setup_bufferline()
           filetype = "NvimTree",
           text = "File Explorer",
           text_align = "center",
-          separator = true,
+          separator = false,
         },
       },
       color_icons = true,
@@ -45,7 +38,7 @@ local function setup_bufferline()
       show_close_icon = true,
       show_tab_indicators = true,
       persist_buffer_sort = true,
-      separator_style = "slant",
+      separator_style = "thin",
       enforce_regular_tabs = false,
       always_show_bufferline = true,
       hover = {
@@ -57,9 +50,19 @@ local function setup_bufferline()
   })
 end
 
+vim.keymap.set("n", "<leader>bc", "<Cmd>bdelete!<CR>", { desc = "Fechar buffer" })
+
 return {
   "akinsho/bufferline.nvim",
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
+  event = "VeryLazy",
+  keys = {
+    { "<S-h>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Buffer anterior" },
+    { "<S-l>", "<Cmd>BufferLineCycleNext<CR>", desc = "Buffer próximo" },
+    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Fixar buffer" },
+    { "<leader>br", "<Cmd>BufferLineCloseOthers<CR>", desc = "Fechar outros buffers" },
+    { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Fechar outros buffers" },
+  },
   config = setup_bufferline,
 }

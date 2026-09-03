@@ -31,7 +31,11 @@ return {
           formatting = {
             command = { "alejandra" },
           },
-          autoArchive = true,
+          nix = {
+            flake = {
+              autoArchive = true,
+            },
+          },
         },
       },
     })
