@@ -30,6 +30,11 @@ opt.scrolloff = 8
 opt.signcolumn = "yes"
 opt.backspace = { "start", "eol", "indent" }
 
+-- Lower leader-key timeout so prefix mappings (<space>e, <space>t) fire
+-- immediately instead of waiting the default 1s.
+opt.timeoutlen = 300
+opt.ttimeoutlen = 50
+
 opt.splitright = true
 opt.splitbelow = true
 
