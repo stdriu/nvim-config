@@ -148,8 +148,6 @@ local FORCED_EAGER = {
   ["riu.plugins.luasnip"] = true,
   ["riu.plugins.autopairs"] = true,
   ["riu.plugins.which-key"] = true,
-  ["riu.plugins.vimtex"] = true,
-  ["riu.plugins.table-mode"] = true,
   ["riu.plugins.direnv"] = true,
   ["riu.plugins.snacks"] = true,
   ["riu.plugins.matugen"] = true,
@@ -161,12 +159,14 @@ local plugins_modules = {
   "riu.plugins.autopairs",
   "riu.plugins.oil",
   "riu.plugins.todo-comments",
-  "riu.plugins.telescope",
   "riu.plugins.cord-nvim",
   "riu.plugins.snacks",
   "riu.plugins.lsp",
   "riu.plugins.cmp",
+  "riu.plugins.navic",
+  "riu.plugins.nvim-tree",
   "riu.plugins.diffview",
+  "riu.plugins.gitsigns",
   "riu.plugins.luasnip",
   "riu.plugins.treesitter",
   "riu.plugins.table-mode",
@@ -176,6 +176,7 @@ local plugins_modules = {
   "riu.plugins.lualine-nvim",
   "riu.plugins.bufferline",
   "riu.plugins.direnv",
+  "riu.plugins.undotree",
 }
 
 M.load_config = function()

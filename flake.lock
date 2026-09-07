@@ -80,8 +80,7 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
-        "nixpkgs": "nixpkgs",
-        "telescope-themes": "telescope-themes"
+        "nixpkgs": "nixpkgs"
       }
     },
     "rust-analyzer-src": {
@@ -98,22 +97,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "telescope-themes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1747419972,
-        "narHash": "sha256-mghZS2nUgdAWzPeFZzFSt/X7RJXyraIzKfpDtrT6nrc=",
-        "owner": "andrewberty",
-        "repo": "telescope-themes",
-        "rev": "65721365bd7a04a6c9679e76b6387b60320fd5f3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "andrewberty",
-        "repo": "telescope-themes",
         "type": "github"
       }
     }

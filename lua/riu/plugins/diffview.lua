@@ -1,10 +1,14 @@
-local function setup_diffview()
-  local actions = require("diffview.actions")
-
-  require("diffview").setup({})
-end
-
 return {
   "sindrets/diffview.nvim",
-  config = setup_diffview,
+  cmd = {
+    "DiffviewOpen",
+    "DiffviewFileHistory",
+    "DiffviewClose",
+    "DiffviewToggleFiles",
+    "DiffviewFocusFiles",
+    "DiffviewRefresh",
+  },
+  config = function()
+    require("diffview").setup({})
+  end,
 }

@@ -18,12 +18,5 @@
 
         doCheck = false;
       };
-
-  telescope_themes =
-    mk "telescope-themes"
-    (plugin_srcs.telescope_themes or null)
-    (plugin_revs.telescope_themes or null);
 in
-  lib.filter (x: x != null) [
-    telescope_themes
-  ]
+  lib.filter (x: x != null) []

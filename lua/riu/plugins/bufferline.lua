@@ -1,3 +1,10 @@
+-- Bufferline wired for NvChad-style per-tab buffer workspaces.
+-- Buffer membership per tab is tracked in riu.tabs (loaded at startup);
+-- here we filter what bufferline displays to the current tab's set.
+
+local tabs = require("riu.tabs")
+local api = vim.api
+
 local function setup_bufferline()
   require("bufferline").setup({
     options = {
@@ -46,9 +53,24 @@ local function setup_bufferline()
         delay = 200,
         reveal = { "close" },
       },
+      -- Show only the buffers that belong to the current workspace (tab).
+      custom_filter = function(bufnr)
+        return tabs.is_member(bufnr)
+      end,
     },
   })
 end
+
+-- Re-render the bufferline after switching tabs so the new workspace's
+-- buffers show immediately.
+api.nvim_create_autocmd("TabEnter", {
+  group = api.nvim_create_augroup("RiuBufferline", { clear = false }),
+  callback = function()
+    vim.schedule(function()
+      pcall(function() require("bufferline.ui").refresh() end)
+    end)
+  end,
+})
 
 vim.keymap.set("n", "<leader>bc", "<Cmd>bdelete!<CR>", { desc = "Fechar buffer" })
 

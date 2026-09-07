@@ -21,8 +21,8 @@ end
 -- 1. Consolidated Initialization Block
 local function setup_snacks()
   local dashboard_sections = {
-    { section = "header" },
-    { section = "keys",  gap = 1, padding = 1 },
+    { section = "header", padding = 1 },
+    { section = "keys",   gap = 1, padding = 1 },
   }
 
   -- Initialize Snacks with your custom options
@@ -146,6 +146,8 @@ local function setup_snacks()
   keymap("n", "<Leader>rN", function() snacks.rename.rename_file() end, { desc = "Fast Rename Current File" })
   keymap("n", "<Leader>dB", function() snacks.bufdelete() end, { desc = "Delete Buffer" })
   keymap("n", "<Leader>pf", function() snacks.picker.files() end, { desc = "Find files" })
+  keymap("n", "<leader>fb", function() snacks.picker.buffers() end, { desc = "Find buffers" })
+  keymap("n", "<leader>pr", function() snacks.picker.recent() end, { desc = "Fuzzy find recent files" })
   keymap("n", "<leader>pc", function() snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
     { desc = "Find config file" })
   keymap("n", "<leader>ps", function() snacks.picker.grep() end, { desc = "Grep word" })

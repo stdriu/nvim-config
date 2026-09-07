@@ -39,9 +39,10 @@
       cord-nvim
       nvim-lspconfig
       cmp-nvim-lsp
+      nvim-navic
+      nvim-tree-lua
       diffview-nvim
-      telescope-fzf-native-nvim
-      telescope-nvim
+      gitsigns-nvim
       nvim-treesitter.withAllGrammars
       vimtex
       bufferline-nvim
@@ -55,7 +56,6 @@
           sha256 = "0mkq8v8l9zbl2l12whzsnbz3fmg7ssqk4qb2syw8hxw1j9sb8wm0";
         };
       })
-      snacks-nvim
       direnv-vim
       (pkgs.vimUtils.buildVimPlugin {
         pname = "matugen-nvim";
