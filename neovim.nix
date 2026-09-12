@@ -67,6 +67,17 @@
           sha256 = "03clibpw2s2ands0rl39s40d30445ja6n7a3p1mp4vlvfk6qhd1a";
         };
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "base46";
+        version = "v3.0";
+        src = pkgs.fetchFromGitHub {
+          owner = "AvengeMedia";
+          repo = "base46";
+          rev = "v3.0";
+          sha256 = "sha256-kwDMC6rYzJYECmGnwn8JiAbffUq7hAXcUH6gPSkk2uI=";
+        };
+        doCheck = false;
+      })
     ]
     ++ extraPlugins;
 

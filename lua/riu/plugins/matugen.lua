@@ -1,7 +1,7 @@
 local function setup_matugen()
   require("matugen").setup({
     palette_path = "~/.cache/matugen/nvim-colors.json",
-    load_theme = true,
+    load_theme = false,
   })
 end
 
