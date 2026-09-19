@@ -1,16 +1,18 @@
 local opt = vim.opt
 
-opt.guicursor = ""
+opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 opt.number = true
 opt.relativenumber = false
 
 opt.mouse = "a"
 
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
+opt.breakindent = true
 opt.autoindent = true
 opt.smartindent = true
 

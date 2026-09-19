@@ -5,26 +5,39 @@ return {
     local base46 = require("base46")
     base46.setup(opts)
 
-    local ok, err = pcall(vim.cmd.colorscheme, "base46-matugen")
-    if not ok then
-      vim.notify("base46-matugen: " .. tostring(err), vim.log.levels.WARN)
-      vim.cmd.colorscheme("base46-tokyonight")
+    local function set_theme(name)
+      local ok, err = pcall(vim.cmd.colorscheme, "base46-" .. name)
+      if ok then
+        vim.notify("Theme: " .. name, vim.log.levels.INFO)
+      else
+        vim.notify("Could not load base46-" .. name .. ": " .. tostring(err), vim.log.levels.WARN)
+      end
+      return ok
     end
 
-    vim.api.nvim_create_autocmd("Signal", {
-      pattern = "USR1",
-      callback = function()
-        base46.theme_tables["base46-matugen"] = nil
-        local ok2, err2 = pcall(vim.cmd.colorscheme, "base46-matugen")
-        if ok2 then
-          vim.notify("Matugen theme reloaded", vim.log.levels.INFO)
-        else
-          vim.notify("Reload failed: " .. tostring(err2), vim.log.levels.ERROR)
-        end
-      end,
-    })
+    -- Fixed themes; toggle between them with :CycleTheme.
+    local themes = { "oxocarbon", "kanagawa" }
+
+    vim.api.nvim_create_user_command("CycleTheme", function()
+      local cur = vim.g.colors_name
+      if not cur or not cur:match("^base46%-") then
+        set_theme(themes[1])
+        return
+      end
+      local current = cur:gsub("^base46%-", "")
+      local next = themes[1]
+      if current == themes[1] then next = themes[2] end
+      set_theme(next)
+    end, { desc = "Cycle between oxocarbon and kanagawa" })
+
+    -- Default theme on startup.
+    set_theme(opts.theme or themes[1])
+
+    -- Apply base46 integration work (statusline/winbar/bufferline etc).
+    require("base46").setup(opts)
   end,
   opts = {
+    theme = "oxocarbon",
     integrations = {
       bufferline = true,
       cmp = true,

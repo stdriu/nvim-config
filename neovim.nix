@@ -58,16 +58,6 @@
       })
       direnv-vim
       (pkgs.vimUtils.buildVimPlugin {
-        pname = "matugen-nvim";
-        version = "rev-08ab233808af9cc1055165b3221a7476354b15ee";
-        src = pkgs.fetchFromGitHub {
-          owner = "Senal-D-A-Gunaratna";
-          repo = "matugen.nvim";
-          rev = "08ab233808af9cc1055165b3221a7476354b15ee";
-          sha256 = "03clibpw2s2ands0rl39s40d30445ja6n7a3p1mp4vlvfk6qhd1a";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
         pname = "base46";
         version = "v3.0";
         src = pkgs.fetchFromGitHub {
