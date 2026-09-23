@@ -37,7 +37,7 @@ return {
     require("base46").setup(opts)
   end,
   opts = {
-    theme = "oxocarbon",
+    theme = "kanagawa",
     integrations = {
       bufferline = true,
       cmp = true,
