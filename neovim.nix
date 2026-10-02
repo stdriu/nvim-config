@@ -58,13 +58,13 @@
       })
       direnv-vim
       (pkgs.vimUtils.buildVimPlugin {
-        pname = "base46";
-        version = "v3.0";
+        pname = "neovim-ayu";
+        version = "unstable-2026-01-09";
         src = pkgs.fetchFromGitHub {
-          owner = "AvengeMedia";
-          repo = "base46";
-          rev = "v3.0";
-          sha256 = "sha256-kwDMC6rYzJYECmGnwn8JiAbffUq7hAXcUH6gPSkk2uI=";
+          owner = "shatur";
+          repo = "neovim-ayu";
+          rev = "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8";
+          hash = "sha256-L53zl5XYPvT8gPpPC4IyYpK1CZk7Iv6au3xYu6OD/uY=";
         };
         doCheck = false;
       })
